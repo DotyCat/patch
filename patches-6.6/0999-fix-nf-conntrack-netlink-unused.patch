@@ -1,0 +1,14 @@
+--- a/net/netfilter/nf_conntrack_netlink.c
++++ b/net/netfilter/nf_conntrack_netlink.c
+@@ -3077,9 +3077,9 @@ nla_put_failure:
+ 	return -1;
+ }
+ 
+#ifndef CONFIG_NF_CONNTRACK_CHAIN_EVENTS
+#ifdef CONFIG_NF_CONNTRACK_EVENTS
+-static int
++static int __maybe_unused
+ctnetlink_expect_event(unsigned int events, const struct nf_exp_event *item)
+ {
+ 	struct nf_conntrack_expect *exp = item->exp;
+ 	struct net *net = nf_ct_exp_net(exp);
